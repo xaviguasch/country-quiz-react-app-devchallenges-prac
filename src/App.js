@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import Question from './components/Question'
 
 import './App.css'
 
 function App() {
-  const [countries, setCountries] = useState()
+  const [countries, setCountries] = useState([])
+  const [qs, setQuestions] = useState([])
+  const [currentQ, setCurrentQ] = useState([])
+  const [gameStarted, setGameStart] = useState(false)
+  const [qPending, setQPending] = useState(true)
 
   const totalNumQs = 5
 
@@ -25,7 +30,17 @@ function App() {
       .then((data) => setCountries(data))
   }
 
-  const generateQuestion = () => {
+  const checkResult = (location) => {
+    setQPending(false)
+
+    if (location === currentQ.winner) {
+      console.log('we got a winner')
+    } else {
+      console.log('you failed')
+    }
+  }
+
+  const generateQuestions = () => {
     let questions = []
 
     for (let i = 0; i < totalNumQs; i++) {
@@ -42,7 +57,7 @@ function App() {
 
         selections.forEach((sel) => options.push(sel.name.common))
       } else {
-        questionStr = `${winner.flag}&Which country does this flag belong to?`
+        questionStr = `${winner.flag} Which country does this flag belong to?`
 
         selections.forEach((sel) => options.push(sel.name.common))
       }
@@ -55,13 +70,18 @@ function App() {
       })
     }
 
-    console.log(questions)
+    setGameStart(true)
+    setQuestions(questions)
+    setCurrentQ(questions[0])
   }
 
   return (
     <div className='App'>
       <h1>Country Quizz</h1>
-      <button onClick={generateQuestion}>Generate!</button>
+      {!gameStarted && <button onClick={generateQuestions}>Start!</button>}
+      {gameStarted && (
+        <Question currentQ={currentQ} checkResult={checkResult} isQPending={qPending} />
+      )}
     </div>
   )
 }
