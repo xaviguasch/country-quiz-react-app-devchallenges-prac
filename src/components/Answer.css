@@ -1,0 +1,7 @@
+.correct-pick {
+  background: green;
+}
+
+.wrong-pick {
+  background: red;
+}

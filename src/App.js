@@ -82,6 +82,8 @@ function App() {
       {gameStarted && (
         <Question currentQ={currentQ} checkResult={checkResult} isQPending={qPending} />
       )}
+
+      {!qPending && <button>Next</button>}
     </div>
   )
 }
