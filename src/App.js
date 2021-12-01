@@ -9,6 +9,9 @@ function App() {
   const [currentQ, setCurrentQ] = useState([])
   const [gameStarted, setGameStart] = useState(false)
   const [qPending, setQPending] = useState(true)
+  const [pointsCounter, setPointsCounter] = useState(0)
+  const [qNumber, setQNumber] = useState(0)
+  const [finishedGame, setFinishedGame] = useState(false)
 
   const totalNumQs = 5
 
@@ -34,9 +37,19 @@ function App() {
     setQPending(false)
 
     if (location === currentQ.winner) {
-      console.log('we got a winner')
+      setPointsCounter((prevState) => prevState + 1)
+    }
+  }
+
+  const moveToNextQ = () => {
+    if (qNumber < qs.length - 1) {
+      console.log(qNumber)
+      setQPending(true)
+      setQNumber(qNumber + 1)
+      setCurrentQ((prev) => qs[qNumber + 1])
     } else {
-      console.log('you failed')
+      console.log('end game')
+      setFinishedGame(true)
     }
   }
 
@@ -70,20 +83,36 @@ function App() {
       })
     }
 
+    setQPending(true)
+    setQNumber(0)
+    setPointsCounter(0)
     setGameStart(true)
     setQuestions(questions)
     setCurrentQ(questions[0])
+  }
+
+  const resetGameHandler = () => {
+    setFinishedGame(false)
+    getCountries()
+    generateQuestions()
   }
 
   return (
     <div className='App'>
       <h1>Country Quizz</h1>
       {!gameStarted && <button onClick={generateQuestions}>Start!</button>}
-      {gameStarted && (
+      {gameStarted && !finishedGame && (
         <Question currentQ={currentQ} checkResult={checkResult} isQPending={qPending} />
       )}
 
-      {!qPending && <button>Next</button>}
+      {!qPending && !finishedGame && <button onClick={moveToNextQ}>Next</button>}
+
+      {finishedGame && (
+        <div>
+          <h2>Finished game. {pointsCounter} points</h2>
+          <button onClick={resetGameHandler}>Try Again</button>
+        </div>
+      )}
     </div>
   )
 }
