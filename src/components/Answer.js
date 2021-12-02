@@ -8,7 +8,7 @@ const Answer = ({ handleOptionClick, isPending, isOptWinner, answerText, letter 
   const handleAnswerClick = (e) => {
     setIsAnswerClicked(true)
 
-    handleOptionClick(e.target.innerText)
+    handleOptionClick(answerText)
   }
 
   let resultStyle

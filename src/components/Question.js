@@ -7,8 +7,6 @@ import './Question.css'
 const Question = ({ currentQ, checkResult, isQPending }) => {
   const handleOptionClick = (location) => {
     checkResult(location)
-
-    console.log(location)
   }
 
   const letters = ['a', 'b', 'c', 'd']

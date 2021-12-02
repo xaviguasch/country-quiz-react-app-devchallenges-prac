@@ -36,11 +36,11 @@ function App() {
   }
 
   const checkResult = (location) => {
-    setQPending(false)
-
     if (location === currentQ.winner) {
       setPointsCounter((prevState) => prevState + 1)
+    } else {
     }
+    setQPending(false)
   }
 
   const moveToNextQ = () => {
@@ -68,7 +68,7 @@ function App() {
       let options = []
 
       if (questionType) {
-        questionStr = `${winner.capital[0]} is the capital of`
+        questionStr = `${winner.capital[0] || winner} is the capital of`
 
         selections.forEach((sel) => options.push(sel.name.common))
       } else {
