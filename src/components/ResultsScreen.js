@@ -9,9 +9,18 @@ const ResultScreen = ({ pointsCounter, resetGame }) => {
 
   return (
     <div className='ResultScreen'>
-      <h2>This is the result screen</h2>
-      <h2>Finished game. {pointsCounter} points</h2>
-      <button onClick={resultBtnHandler}>Try Again</button>
+      <div className='results__text-area'>
+        <h2 className='results-title'>Results</h2>
+        <p className='results-text'>
+          You got <span className='final-result-num'>{pointsCounter}</span> correct
+          answers.
+        </p>
+      </div>
+      <div className='results__btn-area'>
+        <button className='btn btn--try-again' onClick={resultBtnHandler}>
+          Try Again
+        </button>
+      </div>
     </div>
   )
 }

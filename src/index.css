@@ -103,6 +103,23 @@ ul {
 .answer-text {
 }
 
+.results-title {
+  font-size: var(--fs-40);
+  font-weight: var(--fw-bold);
+  color: var(--clr-very-dark-blue-text);
+}
+
+.results-text {
+  color: var(--clr-very-dark-blue-text);
+  font-weight: var(--fw-regular);
+}
+
+.final-result-num {
+  font-size: var(--fs-36);
+  font-weight: var(--fw-bold);
+  color: var(--clr-green);
+}
+
 /* ================== */
 /* Buttons & inputs */
 /* ================== */
@@ -166,6 +183,18 @@ ul {
 
 .btn--advance:hover,
 .btn--advance:focus {
+  opacity: 0.6;
+}
+
+.btn--try-again {
+  font-weight: var(--fw-semi-bold);
+  font-size: var(--fs-18);
+  padding: 0.5em 1em;
+  background: transparent;
+}
+
+.btn--try-again:hover,
+.btn--try-again:focus {
   opacity: 0.6;
 }
 
