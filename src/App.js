@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
+
 import Question from './components/Question'
+import ResultsScreen from './components/ResultsScreen'
 
 import './App.css'
 
@@ -109,10 +111,7 @@ function App() {
       {!qPending && !finishedGame && <button onClick={moveToNextQ}>Next</button>}
 
       {finishedGame && (
-        <div>
-          <h2>Finished game. {pointsCounter} points</h2>
-          <button onClick={resetGameHandler}>Try Again</button>
-        </div>
+        <ResultsScreen pointsCounter={pointsCounter} resetGame={resetGameHandler} />
       )}
     </div>
   )
