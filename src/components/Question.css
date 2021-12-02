@@ -4,6 +4,8 @@
 .answers-list {
   margin-top: 2em;
 
+  height: 250px;
+
   display: flex;
   flex-direction: column;
 

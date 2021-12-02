@@ -104,7 +104,7 @@ function App() {
     <div className='App'>
       <div className='container'>
         <h1 className='title'>Country Quiz</h1>
-        <div className='card'>
+        <div className={`card ${!gameStarted && 'card--transparent'}`}>
           {!gameStarted && (
             <div className='start-btn-area'>
               <button className='btn btn--start' onClick={generateQuestions}>
@@ -121,7 +121,13 @@ function App() {
             />
           )}
 
-          {!qPending && !finishedGame && <button onClick={moveToNextQ}>Next</button>}
+          <div className='btn-area'>
+            {!qPending && !finishedGame && (
+              <button className='btn btn--advance' onClick={moveToNextQ}>
+                Next
+              </button>
+            )}
+          </div>
 
           {finishedGame && (
             <ResultsScreen pointsCounter={pointsCounter} resetGame={resetGameHandler} />

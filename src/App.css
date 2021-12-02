@@ -14,8 +14,23 @@
   padding: 3.25em 1.5em;
 
   border-radius: 0.5em;
+
+  min-height: 500px;
+}
+
+.card--transparent {
+  background: transparent;
 }
 
 .start-btn-area {
   margin-top: 2em;
+
+  display: flex;
+  place-content: center;
+}
+
+.btn-area {
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: flex-end;
 }
