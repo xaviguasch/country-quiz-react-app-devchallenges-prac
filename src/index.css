@@ -134,15 +134,26 @@ ul {
   width: 100%;
 
   display: flex;
-  justify-content: flex-start;
-  gap: 3em;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.btn--answer:hover,
-.btn--answer:focus {
+/* "Enabled" makes it so this is only operative if the button isn't disabled */
+.btn--answer:hover:enabled,
+.btn--answer:focus:enabled {
   color: var(--clr-white-text);
   background: var(--clr-hover-yellow);
   border: 2px solid var(--clr-hover-yellow);
+}
+
+.btn--answer:active:enabled {
+  color: var(--clr-medium-blue-text);
+  border: 2px solid var(--clr-medium-blue-text);
+  background: var(--clr-white);
+}
+
+.btn.btn--answer[disabled]:hover {
+  cursor: not-allowed;
 }
 
 /* ================== */

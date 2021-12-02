@@ -1,9 +1,13 @@
 .correct-pick {
-  background: green;
+  background: var(--clr-green);
+  color: var(--clr-white-text);
+  border: 2px solid var(--clr-green);
 }
 
 .wrong-pick {
-  background: red;
+  background: var(--clr-red);
+  color: var(--clr-white-text);
+  border: 2px solid var(--clr-red);
 }
 
 .answer__letter {

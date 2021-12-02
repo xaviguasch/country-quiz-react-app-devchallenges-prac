@@ -12,13 +12,21 @@ const Answer = ({ handleOptionClick, isPending, isOptWinner, answerText, letter 
   }
 
   let resultStyle
+  let resultIcon = <span></span>
 
   if (!isPending && isAnswerClicked) {
-    isOptWinner ? (resultStyle = 'correct-pick') : (resultStyle = 'wrong-pick')
+    if (isOptWinner) {
+      resultStyle = 'correct-pick'
+      resultIcon = <span className='material-icons-round'>check_circle_outline</span>
+    } else {
+      resultStyle = 'wrong-pick'
+      resultIcon = <span className='material-icons-round'>highlight_off</span>
+    }
   }
 
   if (!isPending && !isAnswerClicked && isOptWinner) {
     resultStyle = 'correct-pick'
+    resultIcon = <span className='material-icons-round'>check_circle_outline</span>
   }
 
   return (
@@ -30,6 +38,7 @@ const Answer = ({ handleOptionClick, isPending, isOptWinner, answerText, letter 
       >
         <span className='answer__letter'>{letter}</span>
         <span className='answer__answer-text'>{answerText}</span>
+        {resultIcon}
       </button>
     </div>
   )

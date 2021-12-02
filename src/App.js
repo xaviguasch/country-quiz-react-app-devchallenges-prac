@@ -104,24 +104,29 @@ function App() {
     <div className='App'>
       <div className='container'>
         <h1 className='title'>Country Quiz</h1>
+        <div className='card'>
+          {!gameStarted && (
+            <div className='start-btn-area'>
+              <button className='btn btn--start' onClick={generateQuestions}>
+                Start!
+              </button>
+            </div>
+          )}
 
-        {!gameStarted && (
-          <div className='start-btn-area'>
-            <button className='btn btn--start' onClick={generateQuestions}>
-              Start!
-            </button>
-          </div>
-        )}
+          {gameStarted && !finishedGame && (
+            <Question
+              currentQ={currentQ}
+              checkResult={checkResult}
+              isQPending={qPending}
+            />
+          )}
 
-        {gameStarted && !finishedGame && (
-          <Question currentQ={currentQ} checkResult={checkResult} isQPending={qPending} />
-        )}
+          {!qPending && !finishedGame && <button onClick={moveToNextQ}>Next</button>}
 
-        {!qPending && !finishedGame && <button onClick={moveToNextQ}>Next</button>}
-
-        {finishedGame && (
-          <ResultsScreen pointsCounter={pointsCounter} resetGame={resetGameHandler} />
-        )}
+          {finishedGame && (
+            <ResultsScreen pointsCounter={pointsCounter} resetGame={resetGameHandler} />
+          )}
+        </div>
       </div>
     </div>
   )
