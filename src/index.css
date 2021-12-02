@@ -49,6 +49,7 @@
   --fs-100: 6.25em;
 
   /* Text */
+  --clr-very-dark-blue-text: hsla(218, 52%, 24%, 1);
   --clr-dark-blue-text: hsla(212, 45%, 33%, 1);
   --clr-medium-blue-text: hsla(237, 54%, 60%, 0.8);
   --clr-white-text: hsla(0, 0%, 95%, 1);
@@ -61,7 +62,11 @@
 }
 
 body {
-  background-color: var(--clr-white);
+  background-image: url('./assets/background.png');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+
   color: var(--clr-dark-blue-text);
   font-family: var(--ff-main);
   font-size: var(--fs-16);
@@ -83,4 +88,46 @@ ul {
 
 /* ================== */
 /* Typography */
+/* ================== */
+
+.title {
+  font-size: var(--fs-32);
+  font-weight: var(--fw-bold);
+}
+
+.question-text {
+}
+
+.answer-text {
+}
+
+/* ================== */
+/* Buttons & inputs */
+/* ================== */
+
+.btn {
+  font-family: inherit;
+  font-weight: var(--fw-semi-bold);
+  font-size: var(--fs-18);
+  color: var(--clr-very-dark-blue-text);
+  border: 2px solid var(--clr-very-dark-blue-text);
+  padding: 0.5em 1.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  opacity: 0.6;
+}
+
+/* ================== */
+/* Utility styles */
+/* ================== */
+.container {
+  margin: 0 1.5em;
+}
+
+/* ================== */
+/* MEDIA QUERIES */
 /* ================== */
