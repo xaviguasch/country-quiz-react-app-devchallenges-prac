@@ -1,0 +1,17 @@
+.Question {
+  margin-top: 0.75em;
+  background: var(--clr-white);
+
+  padding: 3.25em 1.5em;
+
+  border-radius: 0.5em;
+}
+
+.answers-list {
+  margin-top: 2em;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5em;
+}

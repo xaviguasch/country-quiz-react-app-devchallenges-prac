@@ -96,6 +96,8 @@ ul {
 }
 
 .question-text {
+  font-size: var(--fs-20);
+  font-weight: var(--fw-bold);
 }
 
 .answer-text {
@@ -107,18 +109,40 @@ ul {
 
 .btn {
   font-family: inherit;
-  font-weight: var(--fw-semi-bold);
-  font-size: var(--fs-18);
-  color: var(--clr-very-dark-blue-text);
-  border: 2px solid var(--clr-very-dark-blue-text);
-  padding: 0.5em 1.5em;
   border-radius: 0.5em;
   cursor: pointer;
 }
 
-.btn:hover,
-.btn:focus {
+.btn--start {
+  padding: 0.5em 1.5em;
+  font-weight: var(--fw-semi-bold);
+  font-size: var(--fs-18);
+  color: var(--clr-very-dark-blue-text);
+  border: 2px solid var(--clr-very-dark-blue-text);
+}
+
+.btn--start:hover,
+.btn--start:focus {
   opacity: 0.6;
+}
+
+.btn--answer {
+  color: var(--clr-medium-blue-text);
+  border: 2px solid var(--clr-medium-blue-text);
+  background: var(--clr-white);
+  padding: 0.5em 1em;
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  gap: 3em;
+}
+
+.btn--answer:hover,
+.btn--answer:focus {
+  color: var(--clr-white-text);
+  background: var(--clr-hover-yellow);
+  border: 2px solid var(--clr-hover-yellow);
 }
 
 /* ================== */

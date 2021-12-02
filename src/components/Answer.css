@@ -5,3 +5,7 @@
 .wrong-pick {
   background: red;
 }
+
+.answer__letter {
+  text-transform: uppercase;
+}

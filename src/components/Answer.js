@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import './Answer.css'
 
-const Answer = ({ handleOptionClick, isPending, isOptWinner, answerText }) => {
+const Answer = ({ handleOptionClick, isPending, isOptWinner, answerText, letter }) => {
   const [isAnswerClicked, setIsAnswerClicked] = useState(false)
 
   const handleAnswerClick = (e) => {
@@ -23,8 +23,13 @@ const Answer = ({ handleOptionClick, isPending, isOptWinner, answerText }) => {
 
   return (
     <div className='Answer'>
-      <button onClick={handleAnswerClick} disabled={!isPending} className={resultStyle}>
-        {answerText}
+      <button
+        onClick={handleAnswerClick}
+        disabled={!isPending}
+        className={`btn btn--answer ${resultStyle}`}
+      >
+        <span className='answer__letter'>{letter}</span>
+        <span className='answer__answer-text'>{answerText}</span>
       </button>
     </div>
   )

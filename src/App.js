@@ -107,7 +107,7 @@ function App() {
 
         {!gameStarted && (
           <div className='start-btn-area'>
-            <button className='btn' onClick={generateQuestions}>
+            <button className='btn btn--start' onClick={generateQuestions}>
               Start!
             </button>
           </div>
