@@ -45,12 +45,10 @@ function App() {
 
   const moveToNextQ = () => {
     if (qNumber < qs.length - 1) {
-      console.log(qNumber)
       setQPending(true)
       setQNumber(qNumber + 1)
       setCurrentQ((prev) => qs[qNumber + 1])
     } else {
-      console.log('end game')
       setFinishedGame(true)
     }
   }
