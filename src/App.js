@@ -83,6 +83,7 @@ function App() {
       })
     }
 
+    // General reset, necessary when playing more than one game
     setQPending(true)
     setQNumber(0)
     setPointsCounter(0)
